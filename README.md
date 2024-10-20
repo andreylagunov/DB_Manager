@@ -1,4 +1,4 @@
-# Работа с запросами на HeadHunter, работа с JSON-файлами.
+# Работа с базой данных PostgeSQL, компаниями/вакансиями hh.
 
 
 ## Описание:
@@ -13,13 +13,28 @@
 3. git
 4. pytest
 5. pytest-cov
+6. psycopg2-binary
+7. requests
+
+## Для добавления библиотек:
+poetry add psycopg2-binary
+poetry add requests
+
+## Для добавления линтеров/форматтеров:
+
+poetry add --group lint flake8
+poetry add --group lint mypy
+poetry add --group lint black
+poetry add --group lint isort
+poetry add --group dev pytest
+poetry add --group dev pytest-cov
 
 
 ## Для тестирования функций:
 
 1. Клонируйте репозиторий:
 ```
-git clone git@github.com:andreylagunov/BankFeature.git
+git clone git@github.com:andreylagunov/DB_Manager.git
 ```
 
 2. Установите зависимости:
