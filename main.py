@@ -17,8 +17,8 @@ def user_interaction() -> None:
     Функция взаимодействия с пользователем
     """
 
-    if is_database_created("project_3_db"):
-        drop_database("project_3_db")
+    if is_database_created():
+        drop_database()
 
     # Вопрос пользователю по кол-ву вакансий, далее сохраняемых для одной компании.
     vacancies_limit: int = vacancies_limit_question()

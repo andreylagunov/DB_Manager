@@ -1,9 +1,12 @@
+import os
+from dotenv import load_dotenv
 from src.api import HeadHunterAPI
 from src.data_base import (create_companies_table, create_database,
                            create_vacancies_table, insert_into_table,
                            is_companies_table_exist, is_database_created,
                            is_vacancies_table_exist)
 from src.vacancies import DBManager
+
 
 
 def vacancies_limit_question() -> int:
@@ -51,11 +54,14 @@ def db_creation() -> bool:
     Созданёт БД, проверяет факт создания.
     Возвращает True в случае успеха. Иначе - False.
     """
-    print("\nСоздаём базу данных с именем project_3_db...")
-    if not is_database_created("project_3_db"):
-        create_database("project_3_db")
+    load_dotenv()
+    db_name: str = os.getenv("DATABASE_NAME")
+
+    print(f"\nСоздаём базу данных с именем {db_name}...")
+    if not is_database_created():
+        create_database()
     print("Проверяем факт создания...")
-    if is_database_created("project_3_db"):
+    if is_database_created():
         print("Создана успешно.")
         return True
     else:
